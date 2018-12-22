@@ -22,4 +22,3 @@ steps:
 - script: |
     dotnet restore
     dotnet build --configuration $(buildConfiguration)
-    dotnet build $(buildConfiguration)
