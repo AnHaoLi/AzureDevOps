@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureDevOps.Web", "AzureDevOps.Web\AzureDevOps.Web.csproj", "{E74E950B-B399-4338-8D0C-665E48158AC3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureDevOps.Web", "src\AzureDevOps.Web\AzureDevOps.Web.csproj", "{E74E950B-B399-4338-8D0C-665E48158AC3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
