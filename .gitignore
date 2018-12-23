@@ -4,8 +4,8 @@
 
 /src/AzureDevOps.Web/obj/Debug/netcoreapp2.2
 /src/AzureDevOps.Web/bin/*
-/src/.vs/*
 /src/AzureDevOps.Web/obj/AzureDevOps.Web.csproj.nuget.g.targets
 /src/AzureDevOps.Web/obj/AzureDevOps.Web.csproj.nuget.g.props
 /src/AzureDevOps.Web/obj/AzureDevOps.Web.csproj.nuget.cache
-/.vs/AzureDevOps/v15/Server/sqlite3
+/.vs/*
+/src/AzureDevOps.Web/obj/Release/netcoreapp2.2
