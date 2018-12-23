@@ -9,9 +9,11 @@ variables:
   # define two more variables dockerId and dockerPassword in the build pipeline in UI
 
 steps:
+- task: DotNetCoreInstaller@0
+  inputs:
+    version: '2.2.100-preview2-009404'
 - script: |
     dotnet build --configuration $(buildConfiguration)
-    dotnet test dotnetcore-tests --configuration $(buildConfiguration) --logger trx
     dotnet publish --configuration $(buildConfiguration) --output out
     docker build -f Dockerfile -t $(dockerId)/$(imageName) .
     docker login -u $(dockerId) -p $pswd $(server)
