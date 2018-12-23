@@ -4,6 +4,7 @@ pool:
   vmImage: 'Ubuntu 16.04'
 
 variables:
+- group: azure-pipelines.docker-group
   buildConfiguration: 'Release'
   imageName: 'dotnetcore:$(Build.BuildId)'
   # define two more variables dockerId and dockerPassword in the build pipeline in UI
