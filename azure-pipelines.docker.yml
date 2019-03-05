@@ -26,8 +26,8 @@ steps:
   inputs:
     rootDirectory: '$(System.DefaultWorkingDirectory)'
     targetFiles: 'docker-compose-template.yml'
-    tokenPrefix: '%{'
-    tokenSuffix: '}%'
+    tokenPrefix: '#{'
+    tokenSuffix: '}#'
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact'
