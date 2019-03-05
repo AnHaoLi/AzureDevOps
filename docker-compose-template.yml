@@ -2,7 +2,7 @@ version: '2'
  
 services:
 devopslabs:
-image: $(imageName):%{Build.BuildId}%
+image: #{imageName}#:%{Build.BuildId}%
 environment:
 - ASPNETCORE_ENVIRONMENT=Production
  
