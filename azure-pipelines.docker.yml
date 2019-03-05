@@ -17,7 +17,6 @@ steps:
     dotnet publish --configuration $(buildConfiguration) --output out
     docker build -f Dockerfile -t $(imageName) .
     docker login -u $(dockerId) -p $pswd $(dockerServer)
-    docker push $(imageName)
   env:
     pswd: $(dockerPassword)
 
