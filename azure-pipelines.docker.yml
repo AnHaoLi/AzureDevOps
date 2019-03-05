@@ -20,4 +20,12 @@ steps:
     docker push $(imageName)
   env:
     pswd: $(dockerPassword)
+steps:
+- task: qetza.replacetokens.replacetokens-task.replacetokens@3
+  displayName: 'Replace tokens Build.BuildId'
+  inputs:
+    rootDirectory: '$(System.DefaultWorkingDirectory)'
+    targetFiles: 'docker-compose-template.yml'
+
+
 
