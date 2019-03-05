@@ -27,5 +27,10 @@ steps:
     rootDirectory: '$(System.DefaultWorkingDirectory)'
     targetFiles: 'docker-compose-template.yml'
 
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact'
+  inputs:
+    PathtoPublish: docker-compose-template.yml
+
 
 
