@@ -4,20 +4,32 @@ pool:
   vmImage: 'Ubuntu 16.04'
 
 variables:
-- group: azure-pipelines.docker-group
   buildConfiguration: 'Release'
-  imageName: 'dotnetcore:$(Build.BuildId)'
   # define two more variables dockerId and dockerPassword in the build pipeline in UI
 
 steps:
+- task: DotNetCoreInstaller@0
+  inputs:
+    version: '2.2.100-preview2-009404'
 - script: |
     dotnet build --configuration $(buildConfiguration)
-    dotnet test dotnetcore-tests --configuration $(buildConfiguration) --logger trx
     dotnet publish --configuration $(buildConfiguration) --output out
-    docker build -f Dockerfile -t $(dockerId)/$(imageName) .
-    docker login -u $(dockerId) -p $pswd $(server)
-    docker push $(dockerId)/$(imageName)
+    docker build -f Dockerfile -t $imageName .
+    docker login -u $(dockerId) -p $pswd $(dockerServer)
+    docker push $imageName
   env:
     pswd: $(dockerPassword)
-    server: $(dockerServer)
+    imageName: '$(imageName):$(Build.BuildId)'
 
+- task: qetza.replacetokens.replacetokens-task.replacetokens@3
+  displayName: 'Replace tokens Build.BuildId'
+  inputs:
+    rootDirectory: '$(System.DefaultWorkingDirectory)'
+    targetFiles: 'docker-compose-template.yml'
+    tokenPrefix: '#{'
+    tokenSuffix: '}#'
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact'
+  inputs:
+    PathtoPublish: docker-compose-template.yml
