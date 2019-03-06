@@ -1,12 +1,10 @@
 version: '2'
  
 services:
-devopslabs:
-image: #{imageName}#:#{Build.BuildId}#
-environment:
-- ASPNETCORE_ENVIRONMENT=Production
- 
-restart: always
-ports:
-- "81:80"
- 
+  devopsweb:
+    image: #{imageName}#:#{Build.BuildId}#
+    restart: always
+    ports:
+      - 8082:80
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
